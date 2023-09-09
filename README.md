@@ -43,6 +43,6 @@ FAILURE_installer_logs
 
 FAILURE_watchdog_logs
 
-Pligon works only on linux.
+Plugin works only on linux.
 
 
