@@ -1,9 +1,11 @@
 # Dynatrace_OneAgent_healthcheck_plugin
 
 Description:
+
 Plugin uses oneagentctl healthcheck command.
 2 Modes avaliable: every 15 minutes(00, 15, 30, 45) and every minute.
 Plugin uses status metrics. Consumes only one metric. 
+
 Host level view:
 ![image](https://github.com/43034r/Dynatrace_OneAgent_healthcheck_plugin/assets/91538748/ea5e4006-cb20-4db5-a844-e86c7e6470c4)
 
