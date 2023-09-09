@@ -1,0 +1,5 @@
+{
+  "mode": "1",
+  "path_to_oneagentctl": "/opt/dynatrace/oneagent/agent/tools/oneagentctl",
+  "path_to_log": "/var/log/dynatrace/oneagent/healthcheck"
+}

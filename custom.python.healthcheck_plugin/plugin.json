@@ -1,0 +1,172 @@
+{
+    "name": "custom.python.healthcheck_plugin",
+    "version": "0.27",
+    "type": "python",
+    "entity": "HOST",
+    "metricGroup": "eahealthchecks",
+    "processTypeNames": [ "LINUX_SYSTEM" ],
+    "source": {
+        "package": "healthcheck_plugin",
+        "className": "hostHealthCheckPlugin",
+        "install_requires": [ ],
+        "activation": "Singleton"
+    },
+    "metrics": [
+        {
+        "statetimeseries": {
+        "key": "oneagent_state",
+        "displayname": "OneAgent State",
+        "states": ["Unkown", "OK", "FAILURE_user_and_group", "FAILURE_file_structure", "FAILURE_file_capabilities", "FAILURE_file_checksum", "FAILURE_selinux", "FAILURE_apparmor", "FAILURE_installer_logs", "FAILURE_watchdog_logs" ]
+        },
+        "alert_settings": [
+            {
+                        "alert_id": "FAILURE_user_and_group",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: user_and_group",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_user_and_group"
+            },
+            {
+                        "alert_id": "FAILURE_file_structure",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: file_structure",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_file_structure"
+            },
+            {
+                        "alert_id": "FAILURE_file_capabilities",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: file_capabilities",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_file_capabilities"
+            },
+            {
+                        "alert_id": "FAILURE_file_checksum",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: file_checksum",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_file_checksum"
+            },
+            {
+                        "alert_id": "FAILURE_selinux",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: selinux",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_selinux"
+            },
+            {
+                        "alert_id": "FAILURE_apparmor",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: apparmor",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_apparmor"
+            },
+            {
+                        "alert_id": "FAILURE_installer_logs",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: installer_logs",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_installer_logs"
+              },
+              {
+                        "alert_id": "FAILURE_watchdog_logs",
+                        "event_type": "ERROR_EVENT",
+                        "event_name": "OneAgent healthcheck failed: watchdog_logs",
+                        "threshold": 0,
+                        "description": "OneAgent is not healthy for {violating_samples} min.",
+                        "alert_condition": "ABOVE",
+                        "samples": 15,
+                        "violating_samples": 10,
+                        "dealerting_samples": 5,
+                        "state_name": "FAILURE_watchdog_logs"
+              }
+        ]
+        }
+    ],
+    "ui": {
+        "keycharts": [
+            {
+                "group": "OneAgent_healthchecks",
+                "title": "OneAgent healthchecks",
+                "description": "oneagent healthchecks",
+                "series": [
+                    {
+                        "key": "oneagent_state",
+                        "displayName": "OneAgent State",
+                        "seriestype": "bar",
+                        "statecolors": ["#898989", "#0F9D58", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437"],
+                        "statechart": true
+                    }
+                ]
+            }
+        ],
+        "charts": [
+            {
+                "group": "OneAgent_healthchecks",
+                "title": "OneAgent healthchecks",
+                "description": "oneagent healthchecks",
+                "series": [
+                    {
+                        "key": "oneagent_state",
+                        "displayName": "OneAgent State",
+                        "seriestype": "bar",
+                        "statecolors": ["#898989", "#0F9D58", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437", "#DB4437"],
+                        "statechart": true
+                    }
+                ]
+            }
+        ]
+    },
+    "configUI": {
+        "displayName": "OneAgent HealthChecks Extension"
+    },
+    "properties": [
+        {
+            "key": "mode",
+            "type": "String"
+        },
+        {
+            "key": "path_to_oneagentctl",
+            "type": "String"
+        },
+        {
+            "key": "path_to_log",
+            "type": "String"
+        }
+  ]
+}
